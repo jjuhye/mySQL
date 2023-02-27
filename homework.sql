@@ -175,7 +175,7 @@ select mp_id, sum(mp_buyToon) from mypage where mp_id='asd';
 select mp_id, sum(mp_buyToon) from mypage group by mp_id having sum(mp_buyToon)>=500;
 
 # [문제 10] mypage 테이블에서 토요일 웹툰을 산 회원 목록과 웹툰이름을 출력하시오.
-#select mp_id, t.t_title from mypage, toon t where dayofweek(t_regDate)=7;
+select mp_id, t.t_title from mypage m, toon t where dayofweek(t_regDate)=7 and t.t_title=m.mp_favorite;
 
 # [문제 11] mypage 테이블에서 회원당 평균 소비량을 출력하시오.
 select mp_id, avg(mp_buyToon) from mypage group by mp_id;
